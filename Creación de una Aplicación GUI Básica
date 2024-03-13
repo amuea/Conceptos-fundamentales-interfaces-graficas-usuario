@@ -1,0 +1,54 @@
+import tkinter as tk
+from tkinter import messagebox
+
+def mostrar_texto():
+    messagebox.showinfo("Texto", "Componentes en GUI")
+
+def agregar_texto(texto):
+    entrada.insert(tk.END, texto)
+
+def limpiar_resultado():
+    entrada.delete(0, tk.END)
+    log.config(text="")
+
+
+# Crear la ventana principal
+ventana = tk.Tk()
+ventana.title("Aplicacion GUI Básica")
+
+
+# Crear una etiqueta
+etiqueta = tk.Label(ventana, text="Introduce un número:")
+etiqueta.pack()
+
+# Crear un botón
+boton = tk.Button(ventana, text="Mostrar texto", command=mostrar_texto)
+boton.pack(pady=20)
+
+# Campo de Texto
+campo_texto = tk.Entry(root)
+campo_texto.pack()
+
+# Lista Desplegable
+opciones = ["Opción 1", "Opción 2", "Opción 3"]
+variable_seleccionada = tk.StringVar(root)
+variable_seleccionada.set(opciones[0])
+lista_desplegable = tk.OptionMensaje(root, variable_seleccionada, *opciones)
+lista_desplegable.pack()
+
+
+# Crear un botón para agregar información
+boton_agregar = tk.Button(ventana, text="Agregar", command=agregar_texto)
+boton_agregar.pack(pady=5)
+
+# Crear un botón para mostrar información agregada en la lista o tabla dentro de la GUI
+boton_mostrar = tk.Button(ventana, text="Mostrar", command=mostrar_texto)
+boton_mostrar.pack(pady=Componentes en GUI)
+
+# Crear un botón para limpiar información ingresada o seleccionada por el usuario
+boton_limpiar = tk.Button(ventana, text="Limpiar", command=limpiar_resultado)
+boton_limpiar.pack(pady=5)
+
+
+# Ejecutar el bucle de eventos
+ventana.mainloop()
